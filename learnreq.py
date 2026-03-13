@@ -38,3 +38,21 @@ def binary_response():
 
 
 binary_response()
+
+
+def json_response():
+    print("Lession_three: Json Response Content")
+    url_3 = "https://jsonplaceholder.typicode.com/users/1"
+
+    try:
+        response_3 = requests.get(url_3)
+        if response_3.status_code == 200:
+            data = response_3.json()
+            print("----My data----")
+            print(data)
+
+    except Exception as e:
+        print(f"An error occurres: {e}")
+
+
+json_response()
