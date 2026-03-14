@@ -115,4 +115,36 @@ def custom_headers():
         print(f"An error occurres: {e}")
 
 
-custom_headers()
+# custom_headers()
+
+
+def complecated_post():
+    print("Lession_seven: complecated post request")
+    url_7 = "https://httpbin.org/post"
+
+    payload = {
+        "username": "sandaruwan",
+        "password": "MyPassword123",
+        "email": "myemail@gmail.com", }
+
+    try:
+        print("Sendint POST request as HTML form data")
+        response_form = requests.post(url_7, data=payload)
+
+        if response_form.status_code == 200:
+            print("✅ Form data received by the server:")
+            print(response_form.json()["form"])
+
+        print("Send POST request as json data")
+        response_json = requests.post(url_7, json=payload)
+
+        if response_json.status_code == 200:
+
+            print("✅ json data received by the server: ")
+            print(response_json.json()["json"])
+
+    except Exception as e:
+        print(f"An error occurres: {e}")
+
+
+complecated_post()
